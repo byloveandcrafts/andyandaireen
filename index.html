@@ -555,6 +555,34 @@ section{padding:80px 5%;position:relative;}
   color:var(--taupe);
   display:flex;align-items:center;gap:6px;
 }
+/* QR + directions */
+.venue-qr-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:24px;margin-top:26px;flex-wrap:wrap;
+}
+.venue-qr-box{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.venue-qr-box img{
+  width:110px;height:110px;border-radius:12px;
+  border:3px solid var(--sand-light);
+  box-shadow:0 4px 16px rgba(156,127,102,.15);
+  display:block;
+}
+.venue-qr-label{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-mid);
+}
+.venue-directions-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--sage),var(--sage-deep));
+  color:white;text-decoration:none;
+  padding:12px 24px;border-radius:50px;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  box-shadow:0 4px 18px rgba(90,122,105,.3);
+  transition:opacity .3s,transform .3s;
+}
+.venue-directions-btn:hover{opacity:.9;transform:translateY(-2px);}
 
 /* ─── DRESS CODE ─── */
 #dresscode{background:var(--white);}
@@ -712,18 +740,73 @@ footer{
 
 /* ─── MOBILE ─── */
 @media(max-width:768px){
+  /* Nav */
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .timeline::before{left:18px;}
-  .tl-item,.tl-item:nth-child(even){flex-direction:column;padding-left:46px;}
-  .tl-time,.tl-item:nth-child(even) .tl-time{width:100%;text-align:left;}
-  .tl-content{width:100%;}
-  .tl-dot{position:absolute;left:10px;}
-  .tl-item{position:relative;}
+
+  /* Sections */
+  section{padding:52px 5%;}
+
+  /* Hero */
+  #hero{padding:100px 20px 180px;}
+
+  /* Schedule — single column, left-aligned */
+  .timeline{max-width:100%;}
+  .timeline::before{left:20px;transform:none;}
+  .tl-item,
+  .tl-item:nth-child(odd),
+  .tl-item:nth-child(even){
+    flex-direction:row;
+    padding-left:0;
+    align-items:flex-start;
+    gap:14px;
+  }
+  .tl-dot{
+    position:relative;left:auto;
+    flex-shrink:0;margin-top:5px;
+    order:1;
+  }
+  .tl-time,
+  .tl-item:nth-child(odd) .tl-time,
+  .tl-item:nth-child(even) .tl-time{
+    width:72px;
+    min-width:72px;
+    text-align:right;
+    font-size:15px;
+    order:0;
+  }
+  .tl-content{
+    width:auto;
+    flex:1;
+    order:2;
+  }
+
+  /* Dress code */
   .dc-rules{grid-template-columns:1fr;}
-  .sphoto{width:120px;height:168px;}
-  .gform-wrapper iframe{height:900px;}
-  section{padding:60px 5%;}
+
+  /* Venue */
+  .venue-body{padding:20px 18px;}
+  .venue-chips{gap:8px;}
+  .chip{font-size:10px;padding:6px 12px;}
+
+  /* Entourage cards */
+  .ecard{width:calc(50% - 7px);}
+  .ecard.pair{width:100%;}
+  .ent-cards{gap:10px;}
+
+  /* Music player */
+  #music-player{right:12px;bottom:16px;}
+
+  /* Photo strips — smaller on mobile */
+  .strip-photo{height:160px;}
+  .strip-photo.portrait{width:112px;}
+  .strip-photo.landscape{width:230px;}
+
+  /* Notes grid */
+  .notes-grid{grid-template-columns:1fr;}
+
+  /* RSVP button */
+  .gform-btn{padding:12px 28px;font-size:10px;}
 }
 </style>
 </head>
@@ -1131,6 +1214,18 @@ footer{
         <span class="chip">⏰ 2:00 PM onwards</span>
         <span class="chip">🌊 Beachfront Setting</span>
         <span class="chip">📍 Mactan Island</span>
+      </div>
+      <div class="venue-qr-row">
+        <div class="venue-qr-box">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=10&color=2E241C&bgcolor=FDFAF5&data=https%3A%2F%2Fmaps.app.goo.gl%2FcNekRx8cRbCs6cTH9"
+            alt="QR Code to Seascapes Resort Town"
+          >
+          <div class="venue-qr-label">Scan for Directions</div>
+        </div>
+        <a href="https://maps.app.goo.gl/cNekRx8cRbCs6cTH9" target="_blank" class="venue-directions-btn">
+          📍 Open in Maps
+        </a>
       </div>
     </div>
   </div>

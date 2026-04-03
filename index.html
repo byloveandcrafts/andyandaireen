@@ -555,34 +555,6 @@ section{padding:80px 5%;position:relative;}
   color:var(--taupe);
   display:flex;align-items:center;gap:6px;
 }
-/* QR + directions */
-.venue-qr-row{
-  display:flex;align-items:center;justify-content:center;
-  gap:24px;margin-top:26px;flex-wrap:wrap;
-}
-.venue-qr-box{
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-}
-.venue-qr-box img{
-  width:110px;height:110px;border-radius:12px;
-  border:3px solid var(--sand-light);
-  box-shadow:0 4px 16px rgba(156,127,102,.15);
-  display:block;
-}
-.venue-qr-label{
-  font-size:9px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--text-mid);
-}
-.venue-directions-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  background:linear-gradient(135deg,var(--sage),var(--sage-deep));
-  color:white;text-decoration:none;
-  padding:12px 24px;border-radius:50px;
-  font-size:11px;letter-spacing:2px;text-transform:uppercase;
-  box-shadow:0 4px 18px rgba(90,122,105,.3);
-  transition:opacity .3s,transform .3s;
-}
-.venue-directions-btn:hover{opacity:.9;transform:translateY(-2px);}
 
 /* ─── DRESS CODE ─── */
 #dresscode{background:var(--white);}
@@ -642,12 +614,14 @@ section{padding:80px 5%;position:relative;}
 #hashtag .shell2{position:absolute;top:20px;right:8%;font-size:clamp(20px,4vw,40px);opacity:.1;transform:rotate(15deg);}
 .ht-main{
   font-family:'Ephesis',cursive;
-  font-size:clamp(44px,9vw,86px);
+  font-size:clamp(28px,7vw,86px);
   color:white;
   text-shadow:0 2px 30px rgba(158,206,198,.4);
   margin-bottom:16px;position:relative;z-index:1;
+  word-break:break-word;
+  padding:0 10px;
 }
-.ht-sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);position:relative;z-index:1;}
+.ht-sub{font-size:clamp(9px,2.5vw,12px);letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);position:relative;z-index:1;}
 
 /* ─── FAQS ─── */
 #faqs{background:var(--white);}
@@ -740,73 +714,18 @@ footer{
 
 /* ─── MOBILE ─── */
 @media(max-width:768px){
-  /* Nav */
   .nav-links{display:none;}
   .hamburger{display:flex;}
-
-  /* Sections */
-  section{padding:52px 5%;}
-
-  /* Hero */
-  #hero{padding:100px 20px 180px;}
-
-  /* Schedule — single column, left-aligned */
-  .timeline{max-width:100%;}
-  .timeline::before{left:20px;transform:none;}
-  .tl-item,
-  .tl-item:nth-child(odd),
-  .tl-item:nth-child(even){
-    flex-direction:row;
-    padding-left:0;
-    align-items:flex-start;
-    gap:14px;
-  }
-  .tl-dot{
-    position:relative;left:auto;
-    flex-shrink:0;margin-top:5px;
-    order:1;
-  }
-  .tl-time,
-  .tl-item:nth-child(odd) .tl-time,
-  .tl-item:nth-child(even) .tl-time{
-    width:72px;
-    min-width:72px;
-    text-align:right;
-    font-size:15px;
-    order:0;
-  }
-  .tl-content{
-    width:auto;
-    flex:1;
-    order:2;
-  }
-
-  /* Dress code */
+  .timeline::before{left:18px;}
+  .tl-item,.tl-item:nth-child(even){flex-direction:column;padding-left:46px;}
+  .tl-time,.tl-item:nth-child(even) .tl-time{width:100%;text-align:left;}
+  .tl-content{width:100%;}
+  .tl-dot{position:absolute;left:10px;}
+  .tl-item{position:relative;}
   .dc-rules{grid-template-columns:1fr;}
-
-  /* Venue */
-  .venue-body{padding:20px 18px;}
-  .venue-chips{gap:8px;}
-  .chip{font-size:10px;padding:6px 12px;}
-
-  /* Entourage cards */
-  .ecard{width:calc(50% - 7px);}
-  .ecard.pair{width:100%;}
-  .ent-cards{gap:10px;}
-
-  /* Music player */
-  #music-player{right:12px;bottom:16px;}
-
-  /* Photo strips — smaller on mobile */
-  .strip-photo{height:160px;}
-  .strip-photo.portrait{width:112px;}
-  .strip-photo.landscape{width:230px;}
-
-  /* Notes grid */
-  .notes-grid{grid-template-columns:1fr;}
-
-  /* RSVP button */
-  .gform-btn{padding:12px 28px;font-size:10px;}
+  .sphoto{width:120px;height:168px;}
+  .gform-wrapper iframe{height:900px;}
+  section{padding:60px 5%;}
 }
 </style>
 </head>
@@ -958,16 +877,16 @@ footer{
         <div class="strip-photo landscape"><img src="9.JPG" alt=""></div>
         <div class="strip-photo portrait"><img src="10.JPG" alt=""></div>
         <!-- duplicate for seamless loop -->
-        <div class="strip-photo landscape"><img src="16.JPG" alt=""></div>
-        <div class="strip-photo landscape"><img src="12.JPG" alt=""></div>
-        <div class="strip-photo landscape"><img src="13.JPG" alt=""></div>
-        <div class="strip-photo portrait"><img src="14.PNG" alt=""></div>
-        <div class="strip-photo landscape"><img src="15.JPG" alt=""></div>
-        <div class="strip-photo landscape"><img src="16.JPG" alt=""></div>
-        <div class="strip-photo portrait"><img src="17.JPG" alt=""></div>
-        <div class="strip-photo landscape"><img src="18.JPG" alt=""></div>
-        <div class="strip-photo landscape"><img src="19.JPG" alt=""></div>
-        <div class="strip-photo landscape"><img src="20.PNG" alt=""></div>
+        <div class="strip-photo portrait"><img src="21.jpg" alt=""></div>
+        <div class="strip-photo landscape"><img src="22.jpg" alt=""></div>
+        <div class="strip-photo landscape"><img src="23.jpg" alt=""></div>
+        <div class="strip-photo portrait"><img src="4.jpg" alt=""></div>
+        <div class="strip-photo portrait"><img src="5.jpg" alt=""></div>
+        <div class="strip-photo landscape"><img src="6.jpg" alt=""></div>
+        <div class="strip-photo landscape"><img src="7.jpg" alt=""></div>
+        <div class="strip-photo landscape"><img src="8.JPG" alt=""></div>
+        <div class="strip-photo landscape"><img src="9.JPG" alt=""></div>
+        <div class="strip-photo portrait"><img src="10.JPG" alt=""></div>
       </div>
     </div>
 
@@ -986,15 +905,15 @@ footer{
         <div class="strip-photo landscape"><img src="19.JPG" alt=""></div>
         <div class="strip-photo landscape"><img src="20.PNG" alt=""></div>
         <!-- duplicate for seamless loop -->
-        <div class="strip-photo portrait"><img src="1.jpg" alt=""></div>
-        <div class="strip-photo portrait"><img src="2.jpg" alt=""></div>
-        <div class="strip-photo portrait"><img src="3.jpg" alt=""></div>
-        <div class="strip-photo portrait"><img src="4.jpg" alt=""></div>
-        <div class="strip-photo portrait"><img src="5.jpg" alt=""></div>
-        <div class="strip-photo landscape"><img src="6.jpg" alt=""></div>
-        <div class="strip-photo landscape"><img src="7.JPG" alt=""></div>
-        <div class="strip-photo landscape"><img src="8.JPG" alt=""></div>
-        <div class="strip-photo landscape"><img src="9.JPG" alt=""></div>
+         <div class="strip-photo landscape"><img src="11.JPG" alt=""></div>
+        <div class="strip-photo landscape"><img src="12.JPG" alt=""></div>
+        <div class="strip-photo landscape"><img src="13.JPG" alt=""></div>
+        <div class="strip-photo portrait"><img src="14.PNG" alt=""></div>
+        <div class="strip-photo landscape"><img src="15.JPG" alt=""></div>
+        <div class="strip-photo landscape"><img src="16.JPG" alt=""></div>
+        <div class="strip-photo portrait"><img src="17.JPG" alt=""></div>
+        <div class="strip-photo landscape"><img src="18.JPG" alt=""></div>
+        <div class="strip-photo landscape"><img src="19.JPG" alt=""></div>
         <div class="strip-photo landscape"><img src="20.PNG" alt=""></div>
       </div>
     </div>
@@ -1093,8 +1012,9 @@ footer{
   <div class="ent-section reveal">
     <div class="ent-group-label">Bridesmaids & Groomsmen</div>
     <div class="ent-cards">
-      <div class="ecard"><div class="ecard-name">Happy Jan Marie Osalla</div><div class="ecard-role">Bridesmaid</div></div>
+      <div class="ecard"><div class="ecard-name">Happy Jan Marie B. Osalla</div><div class="ecard-role">Bridesmaid</div></div>
       <div class="ecard"><div class="ecard-name">Charisse Mae Lintag</div><div class="ecard-role">Bridesmaid</div></div>
+      <div class="ecard"><div class="ecard-name">Valerie Ann Castro</div><div class="ecard-role">Bridesmaid</div></div>
       <div class="ecard"><div class="ecard-name">Rene Simons</div><div class="ecard-role">Groomsman</div></div>
       <div class="ecard"><div class="ecard-name">Günther Rieder</div><div class="ecard-role">Groomsman</div></div>
     </div>
@@ -1105,48 +1025,61 @@ footer{
     <div class="ent-group-label">Principal Sponsors</div>
     <div class="ent-cards">
       <div class="ecard pair">
-        <div class="ecard-name">Ret/Gen Mariano Natuel Jr.<span class="ecard-amp">&</span>Sonia Natuel</div>
+        <div class="ecard-name">PB Gen Mariano Natu-el Jr. (Ret.)<span class="ecard-amp">&</span>Maria Tesonia D. Natu-el</div>
         <div class="ecard-role">Principal Sponsors</div>
       </div>
       <div class="ecard pair">
-        <div class="ecard-name">Ret/Col Melvin Gayotin<span class="ecard-amp">&</span>Lourdes Gayotin</div>
+        <div class="ecard-name">Col. Melvin A. Gayotin (Ret.)<span class="ecard-amp">&</span>Maria Lourdes B. Gayotin</div>
         <div class="ecard-role">Principal Sponsors</div>
       </div>
       <div class="ecard pair">
-        <div class="ecard-name">Bella<span class="ecard-amp">&</span>Noel Gillamac</div>
+        <div class="ecard-name">Bella Gillmac<span class="ecard-amp">&</span>Noel Gillamac</div>
         <div class="ecard-role">Principal Sponsors</div>
       </div>
       <div class="ecard pair">
-        <div class="ecard-name">Faith<span class="ecard-amp">&</span>Augusto Marquez</div>
+        <div class="ecard-name">Faith Evelyn D. Marquez<span class="ecard-amp">&</span>Augusto M. Marquez Jr.</div>
         <div class="ecard-role">Principal Sponsors</div>
       </div>
-      <div class="ecard"><div class="ecard-name">Mayor Nestor Archival</div><div class="ecard-role">Principal Sponsor</div></div>
-      <div class="ecard"><div class="ecard-name">Margot Osmena</div><div class="ecard-role">Principal Sponsor</div></div>
+      <div class="ecard"><div class="ecard-name">Hon. Mayor Nestor Archival</div><div class="ecard-role">Principal Sponsor</div></div>
+      <div class="ecard"><div class="ecard-name">Former Councilor Margot Osmeña</div><div class="ecard-role">Principal Sponsor</div></div>
       <div class="ecard pair">
-        <div class="ecard-name">Sheila<span class="ecard-amp">&</span>Rad Rafols</div>
-        <div class="ecard-role">Principal Sponsors</div>
-      </div>
-      <div class="ecard pair">
-        <div class="ecard-name">Susan<span class="ecard-amp">&</span>Beboy Castro</div>
+        <div class="ecard-name">Sheila Rafols<span class="ecard-amp">&</span>Rad Rafols</div>
         <div class="ecard-role">Principal Sponsors</div>
       </div>
       <div class="ecard pair">
-        <div class="ecard-name">Pablo<span class="ecard-amp">&</span>Lecenia Longinos</div>
+        <div class="ecard-name">Susan Castro<span class="ecard-amp">&</span>Beboy Castro</div>
+        <div class="ecard-role">Principal Sponsors</div>
+      </div>
+      <div class="ecard pair">
+        <div class="ecard-name">Pablo Longinos<span class="ecard-amp">&</span>Lecenia Longinos</div>
         <div class="ecard-role">Principal Sponsors</div>
       </div>
       <div class="ecard"><div class="ecard-name">Rosella Longinos</div><div class="ecard-role">Principal Sponsor</div></div>
       <div class="ecard"><div class="ecard-name">Dr. Anabelle Carpio</div><div class="ecard-role">Principal Sponsor</div></div>
       <div class="ecard"><div class="ecard-name">Dr. Wyben Briones</div><div class="ecard-role">Principal Sponsor</div></div>
       <div class="ecard"><div class="ecard-name">Dr. Rouel A. Longinos</div><div class="ecard-role">Principal Sponsor</div></div>
-    </div>
-  </div>
+      <div class="ecard"><div class="ecard-name">Dr. Arnold Tan</div><div class="ecard-role">Principal Sponsor</div></div>
+      <div class="ecard"><div class="ecard-name">Dr. Christian Enricuso</div><div class="ecard-role">Principal Sponsor</div></div>
+      <div class="ecard pair">
+        <div class="ecard-name">Evelyn Longinos Cui<span class="ecard-amp">&</span>Josh D. Cui</div>
+        <div class="ecard-role">Principal Sponsors</div>
+      </div>
+      <div class="ecard pair">
+        <div class="ecard-name">Evelyn Garcia Longinos<span class="ecard-amp">&</span>Ramon Longinos</div>
+        <div class="ecard-role">Principal Sponsors</div>
+      </div>
+      <div class="ecard"><div class="ecard-name">Elena J. Padilla</div><div class="ecard-role">Principal Sponsor</div></div>
+      <div class="ecard pair">
+        <div class="ecard-name">Maricel Wong<span class="ecard-amp">&</span>John Wong</div>
+        <div class="ecard-role">Principal Sponsors</div>
+      </div>
 
   <!-- Secondary Sponsors -->
   <div class="ent-section reveal">
     <div class="ent-group-label">Secondary Sponsors — Candle</div>
     <div class="ent-cards">
       <div class="ecard pair">
-        <div class="ecard-name">Col/Atty. Vernino Noserale<span class="ecard-amp">&</span>Fiscal Eunice Noserale</div>
+        <div class="ecard-name">Col/Atty. Verniño Noserale<span class="ecard-amp">&</span>Pros. Eunice Scarlet Joy Noserale</div>
         <div class="ecard-role">Candle Sponsors</div>
       </div>
     </div>
@@ -1156,7 +1089,7 @@ footer{
     <div class="ent-group-label">Secondary Sponsors — Veil</div>
     <div class="ent-cards">
       <div class="ecard pair">
-        <div class="ecard-name">Mayor Glaiza Lanete<span class="ecard-amp">&</span>Jay Seachon Lanete</div>
+        <div class="ecard-name">Mayor Glaiza Jane P. Lanete<span class="ecard-amp">&</span>Former Mayor Joshua Judd Lanete II</div>
         <div class="ecard-role">Veil Sponsors</div>
       </div>
     </div>
@@ -1178,7 +1111,7 @@ footer{
     <div class="ent-cards">
       <div class="ecard"><div class="ecard-name">Caleb Rocco Osalla</div><div class="ecard-role">Ring Bearer</div></div>
       <div class="ecard"><div class="ecard-name">Noah Elijah Osalla</div><div class="ecard-role">Coin Bearer</div></div>
-      <div class="ecard"><div class="ecard-name">Nonin Gideon P. Noserale</div><div class="ecard-role">Bible Bearer</div></div>
+      <div class="ecard"><div class="ecard-name">Ñonin Gideon P. Noserale</div><div class="ecard-role">Bible Bearer</div></div>
     </div>
   </div>
 
@@ -1186,8 +1119,10 @@ footer{
   <div class="ent-section reveal">
     <div class="ent-group-label">Flower Girls</div>
     <div class="ent-cards">
-      <div class="ecard"><div class="ecard-name">Kathrin Jellen Bayer</div><div class="ecard-role">Flower Girl</div></div>
-      <div class="ecard"><div class="ecard-name">Isabella Annalise Enriquez</div><div class="ecard-role">Flower Girl</div></div>
+      <div class="ecard"><div class="ecard-name">Kathrin Jellen L. Bayer</div><div class="ecard-role">Flower Girl</div></div>
+      <div class="ecard"><div class="ecard-name">Isabella Annalise L. Enriquez</div><div class="ecard-role">Flower Girl</div></div>
+      <div class="ecard"><div class="ecard-name">Wynauxna Zonette P. Lanete</div><div class="ecard-role">Flower Girl</div></div>
+      <div class="ecard"><div class="ecard-name">Tala Charlotte Pearson</div><div class="ecard-role">Flower Girl</div></div>
     </div>
   </div>
 </section>
@@ -1214,18 +1149,6 @@ footer{
         <span class="chip">⏰ 2:00 PM onwards</span>
         <span class="chip">🌊 Beachfront Setting</span>
         <span class="chip">📍 Mactan Island</span>
-      </div>
-      <div class="venue-qr-row">
-        <div class="venue-qr-box">
-          <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=10&color=2E241C&bgcolor=FDFAF5&data=https%3A%2F%2Fmaps.app.goo.gl%2FcNekRx8cRbCs6cTH9"
-            alt="QR Code to Seascapes Resort Town"
-          >
-          <div class="venue-qr-label">Scan for Directions</div>
-        </div>
-        <a href="https://maps.app.goo.gl/cNekRx8cRbCs6cTH9" target="_blank" class="venue-directions-btn">
-          📍 Open in Maps
-        </a>
       </div>
     </div>
   </div>

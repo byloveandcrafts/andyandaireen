@@ -654,6 +654,32 @@ section{padding:80px 5%;position:relative;}
 }
 .faq-item.open .faq-a{max-height:300px;padding:0 22px 18px;}
 
+/* ─── GERMAN TRANSLATION ─── */
+.de-text{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:13px;color:var(--text-mid);line-height:1.65;
+  margin-top:8px;
+  padding-top:8px;
+  border-top:1px dashed rgba(156,127,102,0.25);
+  opacity:0.8;
+}
+.de-text::before{
+  content:'🇩🇪 ';
+  font-style:normal;font-size:11px;
+}
+.note-de{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:13px;color:var(--text-mid);line-height:1.65;
+  margin-top:8px;
+  padding-top:8px;
+  border-top:1px dashed rgba(156,127,102,0.25);
+  opacity:0.8;
+}
+.note-de::before{
+  content:'🇩🇪 ';
+  font-style:normal;font-size:11px;
+}
+
 /* ─── RSVP ─── */
 #rsvp{background:linear-gradient(170deg,#EBF3F0 0%,#EDE0CC 100%);text-align:center;}
 .rsvp-note{
@@ -716,12 +742,49 @@ footer{
 @media(max-width:768px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .timeline::before{left:18px;}
-  .tl-item,.tl-item:nth-child(even){flex-direction:column;padding-left:46px;}
-  .tl-time,.tl-item:nth-child(even) .tl-time{width:100%;text-align:left;}
-  .tl-content{width:100%;}
-  .tl-dot{position:absolute;left:10px;}
-  .tl-item{position:relative;}
+
+  /* ── Schedule / Timeline ── */
+  .timeline{padding-left:0;}
+  .timeline::before{
+    left:20px;
+    transform:none;
+  }
+  .tl-item,
+  .tl-item:nth-child(even){
+    flex-direction:row;
+    align-items:flex-start;
+    padding-left:52px;
+    gap:0;
+    position:relative;
+  }
+  /* Hide the wide time column; we'll move time above the event */
+  .tl-time,
+  .tl-item:nth-child(even) .tl-time{
+    display:none;
+  }
+  .tl-dot{
+    position:absolute;
+    left:13px;
+    top:4px;
+    margin-top:0;
+  }
+  .tl-content{
+    width:100%;
+  }
+  /* Show time inline above event name */
+  .tl-event::before{
+    content:attr(data-time);
+    display:block;
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--sage-deep);
+    margin-bottom:3px;
+    font-weight:400;
+    letter-spacing:0;
+    text-transform:none;
+  }
+
   .dc-rules{grid-template-columns:1fr;}
   .sphoto{width:120px;height:168px;}
   .gform-wrapper iframe{height:900px;}
@@ -772,8 +835,8 @@ footer{
     <div class="mp-song" onclick="selectSong(1)">
       <span class="mp-song-num">2</span>
       <div class="mp-song-info">
-        <div class="mp-song-title">A Thousand Years</div>
-        <div class="mp-song-artist">Christina Perri</div>
+        <div class="mp-song-title">Das Beste</div>
+        <div class="mp-song-artist">Silbermond</div>
       </div>
       <span class="mp-song-dot"></span>
     </div>
@@ -940,7 +1003,7 @@ footer{
       <div class="tl-time">2:30 PM</div>
       <div class="tl-dot"></div>
       <div class="tl-content">
-        <div class="tl-event">🚪 Guest Arrival</div>
+        <div class="tl-event" data-time="2:30 PM">🚪 Guest Arrival</div>
         <div class="tl-desc">Welcome & seating by the shore</div>
       </div>
     </div>
@@ -948,7 +1011,7 @@ footer{
       <div class="tl-time">3:00 PM</div>
       <div class="tl-dot"></div>
       <div class="tl-content">
-        <div class="tl-event">💍 Wedding Ceremony</div>
+        <div class="tl-event" data-time="3:00 PM">💍 Wedding Ceremony</div>
         <div class="tl-desc">Exchange of vows by the sea</div>
       </div>
     </div>
@@ -956,7 +1019,7 @@ footer{
       <div class="tl-time">5:00 PM</div>
       <div class="tl-dot"></div>
       <div class="tl-content">
-        <div class="tl-event">🥂 Cocktail & Snacks</div>
+        <div class="tl-event" data-time="5:00 PM">🥂 Cocktail & Snacks</div>
         <div class="tl-desc">Drinks, bites & golden hour photos</div>
       </div>
     </div>
@@ -964,7 +1027,7 @@ footer{
       <div class="tl-time">6:00 PM</div>
       <div class="tl-dot"></div>
       <div class="tl-content">
-        <div class="tl-event">🎉 Reception & Party</div>
+        <div class="tl-event" data-time="6:00 PM">🎉 Reception & Party</div>
         <div class="tl-desc">Dinner, toasts, dances & celebration</div>
       </div>
     </div>
@@ -982,8 +1045,7 @@ footer{
     <div class="ent-group-label">Parents of the Groom</div>
     <div class="ent-cards">
       <div class="ecard pair">
-        <div class="ecard-name">Dr. Jellen Osalla<span class="ecard-amp">&</span>Jose Rene Osalla</div>
-        <div class="ecard-role">Parents of the Groom</div>
+        <div class="ecard-name">Karl Heinz Bayer<span class="ecard-amp">&</span>Cornelia Bayer-Schmidt</div>
       </div>
     </div>
   </div>
@@ -993,8 +1055,7 @@ footer{
     <div class="ent-group-label">Parents of the Bride</div>
     <div class="ent-cards">
       <div class="ecard pair">
-        <div class="ecard-name">Karl Heinz Bayer<span class="ecard-amp">&</span>Cornelia Bayer-Schmidt</div>
-        <div class="ecard-role">Parents of the Bride</div>
+        <div class="ecard-name">Dr. Jellen Osalla<span class="ecard-amp">&</span>Jose Rene Osalla</div>
       </div>
     </div>
   </div>
@@ -1174,26 +1235,32 @@ footer{
       <div class="dc-card-icon">👗</div>
       <div class="dc-card-title">For Ladies</div>
       <div class="dc-card-text">Flowy maxi or midi dresses, sundresses, or elegant jumpsuits in soft pastels, bright colors, or tropical prints. Light, breathable fabrics encouraged.</div>
+      <div class="de-text">Fließende Maxi- oder Midikleider, Sommerkleider oder elegante Jumpsuits in sanften Pastelltönen, kräftigen Farben oder tropischen Mustern. Leichte, atmungsaktive Stoffe sind ausdrücklich erwünscht.</div>
     </div>
     <div class="dc-card">
       <div class="dc-card-icon">👔</div>
       <div class="dc-card-title">For Gentlemen</div>
       <div class="dc-card-text">Linen shirts, light suits, or button-down shirts with trousers in neutral or light shades — beige, cream, or light blue. Barong is also warmly welcomed.</div>
+      <div class="de-text">Leinenhemden, leichte Anzüge oder Hemden mit Knopfleiste kombiniert mit Hosen in neutralen oder hellen Farben – Beige, Creme oder Hellblau. Auch ein Barong ist herzlich willkommen.</div>
     </div>
     <div class="dc-card">
       <div class="dc-card-icon">👡</div>
       <div class="dc-card-title">Footwear</div>
       <div class="dc-card-text">Wedges, sandals, or flats are highly recommended. The ceremony will be held on sand — spare your stilettos for the dance floor later!</div>
+      <div class="de-text">Keilabsätze, Sandalen oder flache Schuhe werden sehr empfohlen. Die Zeremonie findet im Sand statt – hebt euch eure Stilettos lieber für die Tanzfläche später auf!</div>
     </div>
     <div class="dc-card">
       <div class="dc-card-icon">🌺</div>
       <div class="dc-card-title">Accessories</div>
       <div class="dc-card-text">Tropical florals, shell jewelry, and light accessories are a beautiful touch. Embrace the fresh, coastal elegance of the occasion.</div>
+      <div class="de-text">Tropische Blumen, Muschelschmuck und leichte Accessoires sind eine wunderschöne Ergänzung. Genießt die frische, elegante Küstenatmosphäre des Anlasses.</div>
     </div>
   </div>
   <div class="dc-avoid reveal">
     <strong style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--peach);font-style:normal;">Please kindly avoid:</strong><br>
     Dark heavy outfits (e.g., all-black suits), denim, and overly casual wear such as slippers or sportswear. White is reserved for the bride. We encourage everyone to embrace a fresh, tropical, and elegant vibe — thank you! 🌊
+    <br><br>
+    <span class="de-text" style="display:block;margin-top:10px;">Dunkle, schwere Outfits (z. B. komplett schwarze Anzüge), Denim sowie zu legere Kleidung wie Flip-Flops oder Sportkleidung. Weiß ist der Braut vorbehalten. Wir freuen uns, wenn alle einen frischen, tropischen und eleganten Stil aufgreifen – vielen Dank!</span>
   </div>
 </section>
 
@@ -1201,37 +1268,43 @@ footer{
 <section id="notes">
   <p class="s-eye reveal">Good to Know</p>
   <h2 class="s-title reveal">A Few Notes</h2>
-  <p class="s-sub reveal">Friendly reminders to help you fully enjoy our special day together.</p>
+  <p class="s-sub reveal">Friendly reminders to help you fully enjoy our special day together.<br><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:14px;opacity:0.7;">🇩🇪 Freundliche Erinnerungen, damit ihr unseren besonderen Tag in vollen Zügen genießen könnt.</span></p>
   <div class="notes-grid">
     <div class="note-card reveal">
       <div class="note-icon">🎁</div>
       <div class="note-ttl">Gifts & Well Wishes</div>
       <div class="note-txt">With our home being abroad, we find it difficult to bring physical gifts. Your presence is truly the most meaningful gift. Should you wish to give, a monetary gift would be sincerely appreciated.</div>
+      <div class="note-de">Da unser Zuhause im Ausland ist, ist es für uns schwierig, physische Geschenke mitzunehmen. Eure Anwesenheit ist für uns das wertvollste Geschenk. Falls ihr uns dennoch etwas schenken möchtet, freuen wir uns sehr über einen Geldbetrag.</div>
     </div>
     <div class="note-card reveal">
       <div class="note-icon">📸</div>
       <div class="note-ttl">Photography</div>
       <div class="note-txt">Guests are welcome to take photos anytime throughout the celebration! We do kindly ask that phones be tucked away during the ceremony itself so you can be fully present.</div>
+      <div class="note-de">Ihr könnt während der gesamten Feier jederzeit gerne Fotos machen! Wir bitten euch jedoch freundlich, während der Zeremonie selbst die Handys wegzulegen, damit ihr den Moment ganz bewusst erleben könnt.</div>
     </div>
     <div class="note-card reveal">
       <div class="note-icon">🌞</div>
       <div class="note-ttl">Sun & Sand</div>
       <div class="note-txt">We'll be celebrating under the tropical Cebu sun. We recommend bringing sunscreen, a personal fan, and staying hydrated throughout the outdoor portions.</div>
+      <div class="note-de">Wir feiern unter der tropischen Sonne von Cebu. Wir empfehlen, Sonnencreme und einen persönlichen Ventilator (z. B. Handfächer) mitzubringen und während der Outdoor-Teile ausreichend zu trinken.</div>
     </div>
     <div class="note-card reveal">
       <div class="note-icon">🅿️</div>
       <div class="note-ttl">Parking</div>
       <div class="note-txt">Parking is available at Seascapes Resort Town. Please follow the attendants' direction upon arrival. Carpooling is encouraged for larger groups.</div>
+      <div class="note-de">Parkmöglichkeiten sind im Seascapes Resort Town vorhanden. Bitte folgt bei eurer Ankunft den Anweisungen des Personals. Für größere Gruppen wird Fahrgemeinschaften empfohlen.</div>
     </div>
     <div class="note-card reveal">
       <div class="note-icon">🍽️</div>
       <div class="note-ttl">Dietary Needs</div>
       <div class="note-txt">Please indicate any dietary restrictions or allergies in your RSVP form so we can ensure everyone is well taken care of during dinner.</div>
+      <div class="note-de">Bitte gebt eventuelle Ernährungsbedürfnisse oder Allergien in eurem RSVP-Formular an, damit wir beim Abendessen für alle bestens sorgen können.</div>
     </div>
     <div class="note-card reveal">
       <div class="note-icon">✈️</div>
       <div class="note-ttl">Coming From Abroad?</div>
       <div class="note-txt">Several resorts and hotels are available near Seascapes. We recommend booking accommodation in advance. Welcome to Cebu — we're so glad you're joining us!</div>
+      <div class="note-de">In der Nähe von Seascapes stehen mehrere Resorts und Hotels zur Verfügung. Wir empfehlen, die Unterkunft frühzeitig zu buchen. Willkommen in Cebu – wir freuen uns sehr, dass ihr dabei seid!</div>
     </div>
   </div>
 </section>
@@ -1266,10 +1339,11 @@ footer{
 <section id="rsvp">
   <p class="s-eye reveal">Join the Celebration</p>
   <h2 class="s-title reveal">RSVP</h2>
-  <p class="s-sub reveal">Please confirm your attendance by <strong>July 20, 2026</strong>.<br>We can't wait to celebrate with you!</p>
+  <p class="s-sub reveal">Please confirm your attendance by <strong>July 20, 2026</strong>.<br>We can't wait to celebrate with you!<br><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:14px;opacity:0.7;">🇩🇪 Bitte bestätigt eure Teilnahme bis zum 20. Juli 2026.<br>Wir können es kaum erwarten, gemeinsam mit euch zu feiern!</span></p>
 
   <p class="rsvp-note reveal">
-    Kindly fill out the form below. Your response helps us prepare everything perfectly for the big day. 🌊
+    Kindly fill out the form below. Your response helps us prepare everything perfectly for the big day. 🌊<br>
+    <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:13px;opacity:0.7;">🇩🇪 Bitte füllt das untenstehende Formular aus. Eure Rückmeldung hilft uns, alles perfekt für unseren großen Tag vorzubereiten.</span>
   </p>
 
   <div style="margin-top:10px;" class="reveal">
@@ -1383,9 +1457,9 @@ const songs = [
     artist: 'Calum Scott'
   },
   {
-    src: 'https://res.cloudinary.com/dmcnpy20v/video/upload/v1775176567/Christina_Perri_-_a_thousand_years_SPOTISAVER_waibz0.mp3',
-    title: 'A Thousand Years',
-    artist: 'Christina Perri'
+    src: 'https://res.cloudinary.com/dmcnpy20v/video/upload/v1775262508/Silbermond_-_Das_Beste_SPOTISAVER_mcnqkh.mp3',
+    title: 'Das Beste',
+    artist: 'Silbermond'
   },
   {
     src: 'https://res.cloudinary.com/dmcnpy20v/video/upload/v1775176566/Khel_Pangilinan_-_I_do_cherish_you_SPOTISAVER_eh9ows.mp3',

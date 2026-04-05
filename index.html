@@ -278,6 +278,30 @@ body{
   pointer-events: none;
 }
 
+.venue-link-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background-color: var(--navy);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-caps);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--navy);
+}
+
+.venue-link-btn:hover {
+  background-color: transparent;
+  color: var(--navy);
+}
+
+.venue-link-btn i {
+  margin-right: 8px;
+}
+
 /* ─── NAV ─── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
@@ -824,14 +848,6 @@ footer{
     <button class="mp-toggle" id="mpToggle" onclick="togglePlaylist()" title="Show playlist">▲</button>
   </div>
   <div class="mp-playlist" id="mpPlaylist">
-    <div class="mp-song active" onclick="selectSong(0)">
-      <span class="mp-song-num">1</span>
-      <div class="mp-song-info">
-        <div class="mp-song-title">You Are The Reason</div>
-        <div class="mp-song-artist">Calum Scott</div>
-      </div>
-      <span class="mp-song-dot"></span>
-    </div>
     <div class="mp-song" onclick="selectSong(1)">
       <span class="mp-song-num">2</span>
       <div class="mp-song-info">
@@ -840,6 +856,16 @@ footer{
       </div>
       <span class="mp-song-dot"></span>
     </div>
+
+    <div class="mp-song active" onclick="selectSong(0)">
+      <span class="mp-song-num">1</span>
+      <div class="mp-song-info">
+        <div class="mp-song-title">You Are The Reason</div>
+        <div class="mp-song-artist">Calum Scott</div>
+      </div>
+      <span class="mp-song-dot"></span>
+    </div>
+    
     <div class="mp-song" onclick="selectSong(2)">
       <span class="mp-song-num">3</span>
       <div class="mp-song-info">
@@ -893,7 +919,7 @@ footer{
     <span>Aireen</span>
   </div>
   <p class="hero-date">Friday, September 25, 2026</p>
-  <p class="hero-venue">Seascapes Resort Town · Mactan Island, Cebu</p>
+  <p class="hero-venue">Solea Mactan Resort · Victor Wahing Street, Alegria, Cordova, 6017 Cebu, Philippines</p>
   <div class="hero-line"><span style="font-size:16px;">🐚</span></div>
   <p class="hero-tag">#AireenWedsAndyByTheSea</p>
 
@@ -995,7 +1021,7 @@ footer{
 <section id="schedule">
   <p class="s-eye reveal">The Big Day</p>
   <h2 class="s-title reveal">Wedding Day Schedule</h2>
-  <p class="s-sub reveal">September 25, 2026 · Seascapes Resort Town, Cebu</p>
+  <p class="s-sub reveal">September 25, 2026 · Solea Mactan Resort, Cebu</p>
   <div class="deco-divider reveal">🐚 · 🌊 · 🐚</div>
 
   <div class="timeline">
@@ -1196,20 +1222,25 @@ footer{
   <div class="venue-card reveal">
     <div class="venue-img-placeholder">
       <div class="v-icon">🏖️</div>
-      <p>Seascapes Resort Town</p>
+      <p>Solea Mactan Resort</p>
       <span>Ceremony & Reception Venue</span>
     </div>
     <div class="venue-body">
-      <div class="venue-name">Seascapes Resort Town</div>
+      <div class="venue-name">Solea Mactan Resort</div>
       <div class="venue-addr">
-        Mactan Island, Lapu-Lapu City, 6015 Cebu, Philippines<br>
+        Victor Wahing Street, Alegria, Cordova, 6017 Cebu, Philippines<br>
         <em>Ceremony & Reception · Same Location</em>
       </div>
       <div class="venue-chips">
         <span class="chip">📅 Sept 25, 2026</span>
         <span class="chip">⏰ 2:00 PM onwards</span>
         <span class="chip">🌊 Beachfront Setting</span>
-        <span class="chip">📍 Mactan Island</span>
+        <a href="https://maps.app.goo.gl/QBwHmuKqoEhwq96U8?g_st=ic" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="venue-link-btn">
+     <i class="fa-solid fa-location-dot"></i> View on Google Maps
+  </a>
       </div>
     </div>
   </div>
@@ -1451,15 +1482,16 @@ tick();setInterval(tick,1000);
 
 // ── MUSIC PLAYER ──
 const songs = [
-  {
-    src: 'https://res.cloudinary.com/dmcnpy20v/video/upload/v1775141777/Calum_Scott_-_You_Are_The_Reason_Lyrics_vrpb5q.mp3',
-    title: 'You Are The Reason',
-    artist: 'Calum Scott'
-  },
+  
   {
     src: 'https://res.cloudinary.com/dmcnpy20v/video/upload/v1775262508/Silbermond_-_Das_Beste_SPOTISAVER_mcnqkh.mp3',
     title: 'Das Beste',
     artist: 'Silbermond'
+  },
+  {
+    src: 'https://res.cloudinary.com/dmcnpy20v/video/upload/v1775141777/Calum_Scott_-_You_Are_The_Reason_Lyrics_vrpb5q.mp3',
+    title: 'You Are The Reason',
+    artist: 'Calum Scott'
   },
   {
     src: 'https://res.cloudinary.com/dmcnpy20v/video/upload/v1775176566/Khel_Pangilinan_-_I_do_cherish_you_SPOTISAVER_eh9ows.mp3',

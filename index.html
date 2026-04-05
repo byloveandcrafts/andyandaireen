@@ -336,6 +336,18 @@ nav{
   0%,100%{box-shadow:0 2px 12px rgba(158,206,198,0.4);}
   50%{box-shadow:0 2px 20px rgba(158,206,198,0.75);}
 }
+.nav-mobile-right{display:none;align-items:center;gap:10px;}
+.nav-rsvp-mobile{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--sage-light),var(--seafoam));
+  color:var(--dusk) !important;
+  text-decoration:none;
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;
+  padding:7px 14px;border-radius:50px;
+  box-shadow:0 2px 12px rgba(158,206,198,0.5);
+  animation:navRsvpPulse 2.5s ease-in-out infinite;
+  white-space:nowrap;
+}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
 .hamburger span{width:22px;height:1.5px;background:rgba(255,255,255,0.6);border-radius:2px;transition:all .3s;}
 .mob-menu{
@@ -796,6 +808,7 @@ footer{
 /* ─── MOBILE ─── */
 @media(max-width:768px){
   .nav-links{display:none;}
+  .nav-mobile-right{display:flex;}
   .hamburger{display:flex;}
 
   /* ── Schedule / Timeline ── */
@@ -920,9 +933,12 @@ footer{
     <li class="nav-rsvp"><a href="#rsvp">RSVP ✨</a></li>
     <li><a href="#faqs">FAQs</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMob()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-mobile-right">
+    <a href="#rsvp" class="nav-rsvp-mobile">RSVP ✨</a>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 <div class="mob-menu" id="mobMenu">
   <a href="#schedule" onclick="toggleMob()">Schedule</a>
@@ -949,7 +965,7 @@ footer{
     <span class="hero-amp">&</span>
     <span>Aireen</span>
   </div>
-  <p class="hero-date">Friday, September 25, 2026 at 3:00PM</p>
+  <p class="hero-date">Friday, September 25, 2026</p>
   <p class="hero-venue">Solea Mactan Resort · Victor Wahing Street, Alegria, Cordova, 6017 Cebu, Philippines</p>
   <div class="hero-line"><span style="font-size:16px;">🐚</span></div>
   <p class="hero-tag">#AireenWedsAndyByTheSea</p>
